@@ -1,0 +1,125 @@
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>User Profile - Passion Association</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            padding-top: 60px;
+        }
+        .profile-card, .profile-preview {
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            max-width: 500px;
+            margin: auto;
+            transition: transform 0.6s ease-in-out, opacity 0.5s;
+        }
+        .profile-card h2, .profile-preview h2 {
+            color: #0d6efd;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .btn-primary {
+            border-radius: 10px;
+        }
+        .slide-in {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        .slide-out {
+            transform: translateY(-50px);
+            opacity: 0;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="profile-card" id="profile-form-section">
+    <h2>Complete Your Profile</h2>
+    <form method="post" id="profile-form">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="fullName" class="form-label">Full Name:</label>
+            <input type="text" name="name" id="fullName" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="email" class="form-label">Email:</label>
+            <input type="email" name="email" id="email" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="phone" class="form-label">Phone:</label>
+            <input type="tel" name="phone" id="phone" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="bio" class="form-label">Short Bio:</label>
+            <textarea name="bio" id="bio" class="form-control" rows="3"></textarea>
+        </div>
+
+        <div class="mb-3">
+            <label for="age" class="form-label">Age:</label>
+            <textarea name="age" id="age" class="form-control" rows="4"></textarea>
+        </div>
+
+        <div class="mb-3">
+            <label for="designation" class="form-label">Designation:</label>
+            <textarea name="designation" id="designation" class="form-control" rows="5"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100">Save Profile</button>
+    </form>
+</div>
+
+<div class="profile-preview hidden slide-out" id="profile-preview">
+    <h2>Your Profile</h2>
+    <p><strong>Full Name:</strong> <span id="previewName"></span></p>
+    <p><strong>Email:</strong> <span id="previewEmail"></span></p>
+    <p><strong>Phone:</strong> <span id="previewPhone"></span></p>
+    <p><strong>Bio:</strong> <span id="previewBio"></span></p>
+    <p><strong>Age:</strong> <span id="previewAge"></span></p>
+    <p><strong>Designation:</strong> <span id="previewDesignation"></span></p>
+</div>
+
+<script>
+    const form = document.getElementById("profile-form");
+    const formSection = document.getElementById("profile-form-section");
+    const preview = document.getElementById("profile-preview");
+
+    form.addEventListener("submit", function(e) {
+        e.preventDefault();
+
+        const name = document.getElementById("fullName").value;
+        const email = document.getElementById("email").value;
+        const phone = document.getElementById("phone").value;
+        const bio = document.getElementById("bio").value;
+        const age = document.getElementById("age").value;
+        const designation = document.getElementById("designation").value;
+
+        document.getElementById("previewName").innerText = name;
+        document.getElementById("previewEmail").innerText = email;
+        document.getElementById("previewPhone").innerText = phone;
+        document.getElementById("previewBio").innerText = bio;
+        document.getElementById("previewAge").innerText = age;
+        document.getElementById("previewDesignation").innerText = designation;
+
+        formSection.classList.add("hidden");
+        preview.classList.remove("hidden", "slide-out");
+        preview.classList.add("slide-in");
+    });
+</script>
+
+</body>
+</html>
+{% endblock %}

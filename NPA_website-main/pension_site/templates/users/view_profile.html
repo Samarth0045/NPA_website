@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Your Profile</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body class="bg-white pt-5">
+    <div class="container">
+        <div class="card p-4 shadow-sm">
+            <h2 class="text-center text-primary">User Profile</h2>
+            <p><strong>Full Name:</strong> {{ profile.full_name }}</p>
+            <p><strong>Email:</strong> {{ profile.email }}</p>
+            <p><strong>Phone:</strong> {{ profile.phone }}</p>
+            <p><strong>Bio:</strong> {{ profile.bio }}</p>
+            <P><strong>Age:</strong> {{profile.age}}</p>
+            <p><strong>Designation:</strong> {{profile.designation}}</p>
+        </div>
+    </div>
+</body>
+</html>

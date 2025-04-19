@@ -1,0 +1,102 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pension Events | Passion Association of Nandurbar</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <style>
+    body {
+      background-color: #f8f9fa;
+      color: #212529;
+      display: flex;
+      height: 100vh;
+      justify-content: center;
+      align-items: center;
+    }
+    .event-card {
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+      padding: 40px;
+      max-width: 900px;
+      width: 100%;
+      text-align: center;
+    }
+    .event-header {
+      color: #0d6efd;
+      margin-bottom: 30px;
+    }
+    .event {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 15px 0;
+      border-bottom: 1px solid #eee;
+    }
+    .event img {
+      width: 150px;
+      height: 100px;
+      border-radius: 12px;
+      object-fit: cover;
+    }
+    .event-details {
+      text-align: left;
+    }
+    .event-title {
+      font-size: 1.3rem;
+      color: #0d6efd;
+      margin: 0;
+    }
+    .event-date {
+      color: #6c757d;
+      font-size: 0.9rem;
+      margin: 5px 0;
+    }
+    .event-description {
+      color: #495057;
+    }
+    .footer {
+      margin-top: 20px;
+      color: #6c757d;
+    }
+  </style>
+</head>
+<body>
+  <div class="event-card">
+    <h1 class="event-header">Pension Scheme Awareness Events</h1>
+
+    <div class="event">
+      <img src="{% static 'image/pension1.png' %}" alt="Pension Event 1">
+      <div class="event-details">
+        <h2 class="event-title">Atal Pension Yojana Drive</h2>
+        <p class="event-date">Date: April 20, 2025</p>
+        <p class="event-description">A detailed awareness camp about the benefits and enrollment process of the Atal Pension Yojana for unorganized sector workers.</p>
+      </div>
+    </div>
+
+    <div class="event">
+      <img src="{% static 'image/pension2.jpg' %}" alt="Pension Event 2">
+      <div class="event-details">
+        <h2 class="event-title">Senior Citizen Pension Mela</h2>
+        <p class="event-date">Date: May 12, 2025</p>
+        <p class="event-description">Special registration and help desk for senior citizens to get information about Indira Gandhi National Old Age Pension Scheme (IGNOAPS).</p>
+      </div>
+    </div>
+
+    <div class="event">
+      <img src="{% static 'image/nps.jpg' %}" alt="Pension Event 3">
+      <div class="event-details">
+        <h2 class="event-title">Pension Scheme Digital Enrollment Camp</h2>
+        <p class="event-date">Date: June 18, 2025</p>
+        <p class="event-description">Guidance and assistance for online application of various government pension schemes, including Widow and Disability pensions.</p>
+      </div>
+    </div>
+
+    <div class="footer">
+      <p>&copy; 2025 Passion Association of Nandurbar | All Rights Reserved</p>
+    </div>
+  </div>
+</body>
+</html>
